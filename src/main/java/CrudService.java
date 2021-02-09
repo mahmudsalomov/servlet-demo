@@ -40,10 +40,17 @@ public class CrudService {
 
 
 
-    public void post(Student student){
+    public boolean post(Student student){
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, user, password);
+            statement=connection.createStatement();
+            ResultSet resultSet=statement.executeQuery("select count(*) from students");
+            while (resultSet.next()){
+                if (resultSet.getInt(1)>50){
+                    return false;
+                }
+            }
             query="insert into students (name, surname) values (?,?)";
             preparedStatement=connection.prepareStatement(query);
             preparedStatement.setString(1,student.getName());
@@ -56,6 +63,7 @@ public class CrudService {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+        return true;
     }
 
     public void put(Student student){

@@ -40,8 +40,12 @@ public class ServletTest extends HttpServlet {
             Student student=new Student();
             student.setName(request.getParameter("name"));
             student.setSurname(request.getParameter("surname"));
-            crudService.post(student);
-            response.sendRedirect("/");
+            boolean bool=crudService.post(student);
+            if (bool){
+                response.sendRedirect("/");
+            } else {
+                response.sendRedirect("/?error=1");
+            }
 //            doGet(request, response);
         } else {
             doPut(request,response);
@@ -60,6 +64,14 @@ public class ServletTest extends HttpServlet {
             doDelete(request,response);
         }
 
+
+        String error="";
+        if (request.getParameter("error")!=null){
+            error="<script>\n" +
+                    "  alert(\"50 tadan ko'p student qo'shib bo'lmaydi\");\n" +
+                    "</script>";
+        }
+
         String list="";
         for (Student student : studentList) {
             System.out.println(student.toString());
@@ -71,13 +83,13 @@ public class ServletTest extends HttpServlet {
                     "\n" +
                     "                        <td>\n" +
                     "\n" +
-                    "                            <input value=\""+student.getName()+"\" placeholder=\"name\" name=\"name\" class=\"form-control\">\n" +
+                    "                            <input required=\"required\" pattern=\".{1,}\" value=\""+student.getName()+"\" placeholder=\"name\" name=\"name\" class=\"form-control\">\n" +
                     "\n" +
                     "                        </td>\n" +
                     "\n" +
                     "                        <td>\n" +
                     "\n" +
-                    "                            <input value=\""+student.getSurname()+"\" placeholder=\"surname\" name=\"surname\" class=\"form-control\">\n" +
+                    "                            <input required=\"required\" pattern=\".{1,}\" value=\""+student.getSurname()+"\" placeholder=\"surname\" name=\"surname\" class=\"form-control\">\n" +
                     "\n" +
                     "                        </td>\n" +
                     "\n" +
@@ -138,10 +150,10 @@ public class ServletTest extends HttpServlet {
                 "\n" +
                 "                    <form action=\"/\" method=\"post\">\n" +
                 "                        <td>\n" +
-                "                            <input class=\"form-control\" id=\"name\" name=\"name\"  type=\"text\" placeholder=\"ism\">\n" +
+                "                            <input required=\"required\" pattern=\".{1,}\" class=\"form-control\" id=\"name\" name=\"name\"  type=\"text\" placeholder=\"ism\">\n" +
                 "                        </td>\n" +
                 "                        <td>\n" +
-                "                            <input class=\"form-control\" id=\"surname\" name=\"surname\"  type=\"text\" placeholder=\"familiya\">\n" +
+                "                            <input required=\"required\" pattern=\".{1,}\" class=\"form-control\" id=\"surname\" name=\"surname\"  type=\"text\" placeholder=\"familiya\">\n" +
                 "                        </td>\n" +
                 "                        <td class=\"text-center\">\n" +
                 "                            <button type=\"submit\" class=\"btn btn-success\" style=\"\">Yangi qo'shish</button>\n" +
@@ -162,6 +174,7 @@ public class ServletTest extends HttpServlet {
                 "    </div>\n" +
                 "</section>\n" +
                 "</body>\n" +
+                error+
                 "</html>";
 
         printWriter.println(main);
