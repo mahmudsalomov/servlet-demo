@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<body style="background-color: lightgrey">
+
+<section class="h-100" >
+    <div class="card h-100 container-fluid">
+
+        <div class="card-header text-center">
+            <h3>
+                Studentlar
+            </h3>
+
+        </div>
+
+        <div class="card-body" >
+
+            <table class="table">
+                <tr class="">
+                    <td>
+                        Yangi student qo'shish:
+                    </td>
+
+                    <form action="/" method="post">
+                        <td>
+                            <input class="form-control" id="fullname" name="fullname"  type="text" placeholder="Student ismi">
+                        </td>
+                        <td>
+                            <input class="form-control" id="newkurs" name="kurs"  type="number" placeholder="Kursni kiriting">
+                        </td>
+                        <td class="text-center">
+                            <button type="submit" class="btn btn-success" style="">Yangi qo'shish</button>
+                        </td>
+                    </form>
+
+                </tr>
+
+                <tr class="">
+                    <th>id</th>
+                    <th>Ismi</th>
+                    <th>Kursi</th>
+                    <th>Tools</th>
+                </tr>
+                <tr>
+                    <form action="/" method="post">
+                        <td></td>
+                        <input type="hidden" placeholder="id" name="id">
+
+
+                        <td>
+
+                            <input placeholder="ism" name="mavzu" id="ism" class="form-control">
+
+                        </td>
+
+                        <td>
+
+                            <input placeholder="kurs" name="kurs" id="kurs" class="form-control">
+
+                        </td>
+
+                        <td class="text-center">
+                            <button type="submit" class="btn btn-success">Yangilash</button>
+                            <a href="'/?id='" type="submit" class="btn btn-danger">O'chirish</a>
+                        </td>
+
+                    </form>
+
+                </tr>
+                <tr>
+                    <form action="/" method="post">
+                        <td></td>
+                        <input type="hidden" placeholder="id" name="id">
+
+
+                        <td>
+
+                            <input placeholder="ism" name="mavzu" id="ism" class="form-control">
+
+                        </td>
+
+                        <td>
+
+                            <input placeholder="kurs" name="kurs" id="kurs" class="form-control">
+
+                        </td>
+
+                        <td class="text-center">
+                            <button type="submit" class="btn btn-success">Yangilash</button>
+                            <a href="'/?id='" type="submit" class="btn btn-danger">O'chirish</a>
+                        </td>
+
+                    </form>
+
+                </tr>
+                <tr>
+                    <form action="/" method="post">
+                        <td></td>
+                        <input type="hidden" placeholder="id" name="id">
+
+
+                        <td>
+
+                            <input placeholder="ism" name="mavzu" id="ism" class="form-control">
+
+                        </td>
+
+                        <td>
+
+                            <input placeholder="kurs" name="kurs" id="kurs" class="form-control">
+
+                        </td>
+
+                        <td class="text-center">
+                            <button type="submit" class="btn btn-success">Yangilash</button>
+                            <a href="'/?id='" type="submit" class="btn btn-danger">O'chirish</a>
+                        </td>
+
+                    </form>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>
+</body>
+</html>
