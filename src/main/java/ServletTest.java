@@ -71,13 +71,13 @@ public class ServletTest extends HttpServlet {
                     "\n" +
                     "                        <td>\n" +
                     "\n" +
-                    "                            <input value="+student.getName()+" placeholder=\"name\" name=\"name\" class=\"form-control\">\n" +
+                    "                            <input value=\""+student.getName()+"\" placeholder=\"name\" name=\"name\" class=\"form-control\">\n" +
                     "\n" +
                     "                        </td>\n" +
                     "\n" +
                     "                        <td>\n" +
                     "\n" +
-                    "                            <input value="+student.getSurname()+" placeholder=\"surname\" name=\"surname\" class=\"form-control\">\n" +
+                    "                            <input value=\""+student.getSurname()+"\" placeholder=\"surname\" name=\"surname\" class=\"form-control\">\n" +
                     "\n" +
                     "                        </td>\n" +
                     "\n" +

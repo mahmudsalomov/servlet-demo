@@ -11,6 +11,7 @@ public class CrudService {
 
     Connection connection=null;
     Statement statement=null;
+    PreparedStatement preparedStatement=null;
     String query="";
 
     public CrudService() throws SQLException {
@@ -43,17 +44,13 @@ public class CrudService {
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, user, password);
-            statement=connection.createStatement();
-            query="insert into students (name, surname) values ('"+student.getName()+"','"+student.getSurname()+"')";
-            statement.execute(query);
-
-            //            String add="insert into books (title,author) values ('Isrof','Shayx Muhammad Sodiq Muhammad Yusuf')";
-//            Statement statement=connection.createStatement();
-//            statement.execute(add);
-//            statement.close();
-//            connection.close();
-            statement.close();
+            query="insert into students (name, surname) values (?,?)";
+            preparedStatement=connection.prepareStatement(query);
+            preparedStatement.setString(1,student.getName());
+            preparedStatement.setString(2,student.getSurname());
+            preparedStatement.execute();
             connection.close();
+            preparedStatement.close();
 
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -63,20 +60,17 @@ public class CrudService {
 
     public void put(Student student){
         try {
+
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, user, password);
-            statement=connection.createStatement();
-            query="update students set name='"+student.getName()+"', surname='"+student.getSurname()+"' where id="+student.getId();
-            statement.execute(query);
-
-            //            String add="insert into books (title,author) values ('Isrof','Shayx Muhammad Sodiq Muhammad Yusuf')";
-//            Statement statement=connection.createStatement();
-//            statement.execute(add);
-//            statement.close();
-//            connection.close();
-            statement.close();
+            query="update students set name=?, surname=? where id=?";
+            preparedStatement=connection.prepareStatement(query);
+            preparedStatement.setString(1,student.getName());
+            preparedStatement.setString(2,student.getSurname());
+            preparedStatement.setLong(3, student.getId());
+            preparedStatement.execute();
             connection.close();
-
+            preparedStatement.close();
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -90,12 +84,6 @@ public class CrudService {
             statement=connection.createStatement();
             query="delete from students where id="+id;
             statement.execute(query);
-
-            //            String add="insert into books (title,author) values ('Isrof','Shayx Muhammad Sodiq Muhammad Yusuf')";
-//            Statement statement=connection.createStatement();
-//            statement.execute(add);
-//            statement.close();
-//            connection.close();
             statement.close();
             connection.close();
 
