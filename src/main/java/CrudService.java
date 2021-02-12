@@ -5,13 +5,13 @@ import java.util.List;
 public class CrudService {
 
 
-//    private final String url="jdbc:postgresql://localhost:5432/student";
-//    private final String user="postgres";
-//    private final String password="postgres";
+    private final String url="jdbc:postgresql://localhost:5432/student";
+    private final String user="postgres";
+    private final String password="postgres";
 
-    private final String url="postgres://oykpbydvsatswh:a80ae4519b6e93714dc564b408459be4b5e2ab3ad26fda3a216bdbdecad43ff7@ec2-34-254-69-72.eu-west-1.compute.amazonaws.com:5432/d1j12ep23ung7o";
-    private final String user="oykpbydvsatswh";
-    private final String password="a80ae4519b6e93714dc564b408459be4b5e2ab3ad26fda3a216bdbdecad43ff7";
+//    private final String url="postgres://oykpbydvsatswh:a80ae4519b6e93714dc564b408459be4b5e2ab3ad26fda3a216bdbdecad43ff7@ec2-34-254-69-72.eu-west-1.compute.amazonaws.com:5432/d1j12ep23ung7o";
+//    private final String user="oykpbydvsatswh";
+//    private final String password="a80ae4519b6e93714dc564b408459be4b5e2ab3ad26fda3a216bdbdecad43ff7";
 
     Connection connection=null;
     Statement statement=null;

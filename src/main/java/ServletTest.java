@@ -13,12 +13,6 @@ public class ServletTest extends HttpServlet {
     public ServletTest() throws SQLException {
     }
 
-//    @Override
-//    public void init(ServletConfig config) throws ServletException {
-//        System.out.println("lalalalala");
-//        super.init(config);
-//    }
-
     @Override
     public void init() throws ServletException {
         System.out.println("lalalalala");
@@ -172,7 +166,6 @@ public class ServletTest extends HttpServlet {
         printWriter.println(main);
 
     }
-
 
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
